@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
-
-import { utils } from "ethers";
 import { Select } from "antd";
 import React, { useState } from "react";
+import { utils } from "ethers";
+
+import { useTokenList } from "eth-hooks/dapps/dex";
 import { Address, AddressInput } from "../components";
-import { useTokenList } from "../hooks";
 
 const { Option } = Select;
 
@@ -115,7 +114,7 @@ export default function Hints({ yourLocalBalance, mainnetProvider, price, addres
           optionFilterProp="children"
         >
           {listOfTokens.map(token => (
-            <Option key={token.symbol} value={token.symbol}>
+            <Option key={token.address + "_" + token.symbol} value={token.symbol}>
               {token.symbol}
             </Option>
           ))}
