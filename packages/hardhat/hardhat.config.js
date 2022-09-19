@@ -4,6 +4,7 @@ const chalk = require("chalk");
 
 require("@nomiclabs/hardhat-waffle");
 require("@tenderly/hardhat-tenderly");
+require("hardhat-gas-reporter");
 
 require("hardhat-deploy");
 
