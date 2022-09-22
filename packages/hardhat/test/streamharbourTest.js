@@ -1,8 +1,5 @@
-const {ethers} = require("hardhat");
-const {use} = require("chai");
-const {solidity} = require("ethereum-waffle");
-
-use(solidity);
+const { ethers } = require("hardhat");
+// const { expect } = require("chai");
 
 describe("Streamharbour", function () {
   let streamharbourContract;
@@ -111,9 +108,13 @@ describe("Streamharbour", function () {
 
         const eventsAfter = await streamharbourContract.queryFilter(logsFilter);
         console.log(`###: eventsAfter`, eventsAfter);
-        const streamerBalanceAfter = await tokenMockContract.balanceOf(streamerAddress);
-        console.log(`###: streamerBalanceAfter`, ethers.utils.formatEther(streamerBalanceAfter));
-
+        const streamerBalanceAfter = await tokenMockContract.balanceOf(
+          streamerAddress
+        );
+        console.log(
+          `###: streamerBalanceAfter`,
+          ethers.utils.formatEther(streamerBalanceAfter)
+        );
 
         return true;
         // expect(await myContract.purpose()).to.equal(newPurpose);
